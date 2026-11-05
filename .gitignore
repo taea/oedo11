@@ -1,0 +1,8 @@
+.claude/
+.playwright-mcp/
+.DS_Store
+
+# 手元用の素材（公開しない）
+sozai.md
+kani-nikki-picks.md
+assets/kanimiso-1-masked.png

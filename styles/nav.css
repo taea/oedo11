@@ -1,0 +1,149 @@
+/* ナビゲーション・フッター */
+
+.nav-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  width: clamp(36px, 3.6vw, 60px);
+  height: clamp(36px, 3.6vw, 60px);
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--sumi);
+  opacity: 0.18;
+  transition: opacity 180ms ease;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-arrow svg { width: 100%; height: 100%; display: block; }
+.nav-arrow:hover { opacity: 0.8; }
+.nav-arrow:focus { outline: none; }
+.nav-arrow:focus-visible { outline: 2px solid var(--miso); border-radius: 4px; }
+#nav-prev { left: 6px; }
+#nav-next { right: 6px; }
+
+body[data-nav-at-start="true"] #nav-prev,
+body[data-nav-at-end="true"] #nav-next { display: none; }
+body[data-active-layout="cover"] .nav-arrow,
+body[data-active-layout="chapter"] .nav-arrow,
+body[data-active-layout="end"] .nav-arrow { color: var(--shiro); }
+
+/* ---- フッターの長屋 ---- */
+.deck-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--footer-h);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 24px;
+  background: var(--shiro-2);
+  border-top: 3px solid var(--kani);
+  font-family: var(--font-dot);
+  color: var(--sumi-2);
+  pointer-events: none;
+}
+.deck-footer[hidden] { display: none; }
+/* 軒の板目（kani.show の暖簾の下の縞） */
+.deck-footer::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -9px;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--kani-deep) 0 2px, transparent 2px 24px);
+  opacity: 0.0;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.footer-brand svg { width: 26px; height: auto; }
+
+.footer-rooms {
+  list-style: none;
+  margin: 0 0 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 100%;
+}
+.footer-room {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 12px;
+  font-size: 15px;
+  color: var(--sumi-2);
+  opacity: 0.55;
+  transition: opacity 200ms ease, color 200ms ease;
+}
+.footer-room.visited { opacity: 0.8; }
+.footer-room.active { opacity: 1; color: var(--kani-deep); }
+.footer-room.active::after {
+  content: "";
+  position: absolute;
+  left: 8px; right: 8px; bottom: 0;
+  height: 4px;
+  background: var(--kani);
+}
+/* 小さな暖簾（3枚） */
+.noren {
+  display: inline-flex;
+  gap: 2px;
+  height: 14px;
+}
+.noren i {
+  width: 5px;
+  background: var(--c-wall);
+}
+.footer-room.visited .noren i { background: var(--kani-hot); }
+.footer-room.active .noren { display: none; }
+.footer-room .room-crab {
+  display: none;
+  width: 30px;
+  animation: crab-walk 0.9s steps(2) infinite;
+}
+.footer-room .room-crab svg { width: 100%; height: auto; display: block; }
+.footer-room.active .room-crab { display: block; }
+
+.footer-page {
+  font-size: 14px;
+  min-width: 64px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+@keyframes crab-walk {
+  0% { transform: translateX(-2px); }
+  100% { transform: translateX(2px); }
+}
+
+@media (orientation: portrait) and (max-width: 700px) {
+  #stage::before {
+    content: "横向きで見ると綺麗だぜ ↻";
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    text-align: center;
+    font-family: var(--font-dot);
+    font-size: 12px;
+    color: var(--sumi-2);
+    pointer-events: none;
+  }
+}
