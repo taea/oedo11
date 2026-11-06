@@ -46,6 +46,8 @@ export function initNav(deckEl, { onChange } = {}) {
 
   window.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
+    // 日本語入力がオンでもフルスクリーンが効くよう、f はキーの位置で見る
+    if (e.code === 'KeyF') { e.preventDefault(); toggleFullscreen(); return; }
     switch (e.key) {
       case 'ArrowRight': case 'PageDown': case ' ': case 'Enter':
         e.preventDefault(); e.shiftKey && e.key === ' ' ? prev() : next(); break;
@@ -59,8 +61,6 @@ export function initNav(deckEl, { onChange } = {}) {
         e.preventDefault(); go(0); break;
       case 'End':
         e.preventDefault(); go(slides.length - 1, stepsOf(slides.length - 1)); break;
-      case 'f': case 'F':
-        e.preventDefault(); toggleFullscreen(); break;
     }
   });
 

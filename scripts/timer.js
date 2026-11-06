@@ -51,8 +51,9 @@ export function initTimer(deckEl, minutes = 20) {
 
   window.addEventListener('keydown', (e) => {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
-    if (e.key === 't' || e.key === 'T') { e.preventDefault(); toggle(); }
-    else if (e.key === 'r' || e.key === 'R') { e.preventDefault(); reset(); }
+    // 日本語入力がオンだと e.key は "Process" になるので、キーの位置（e.code）で見る
+    if (e.code === 'KeyT') { e.preventDefault(); toggle(); }
+    else if (e.code === 'KeyR') { e.preventDefault(); reset(); }
   });
 
   render();
