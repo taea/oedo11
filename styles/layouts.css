@@ -690,3 +690,8 @@
 .flow .content > p:nth-of-type(3) { margin-top: 10px; }
 .flow .content > p:nth-of-type(3) strong { font-weight: 400; background: linear-gradient(transparent 62%, rgba(242, 193, 78, 0.6) 62%); }
 .flow .flow-item strong { background: none; }
+
+/* まきのお詫び */
+.maki .content { font-size: 40px; }
+.maki .content small { display: block; margin-top: 18px; font-size: 24px; line-height: 1.7; }
+.maki .content small a { font-family: var(--font-dot); color: var(--kani); }

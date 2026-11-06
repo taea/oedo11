@@ -22,6 +22,15 @@ rooms:
 
 <!-- layout: cover -->
 
+---
+
+<!-- layout: big -->
+<!-- class: maki -->
+
+実際喋ってみたら全然時間が足りなかったので、<br>まきで飛ばし飛ばしお送りします🙇‍♀️
+
+<small>興味持って下さった方、詳しくは後でスライドお読みください<br>[docs.kani.show/oedo11](https://docs.kani.show/oedo11/)</small>
+
 # 誰
 
 <!-- layout: 2column -->
@@ -158,6 +167,7 @@ rooms:
 - 各カニはセッション終わりに `/save-conversation` で会話ログと日報を保存して秘書に共有する
 
 # nagaya.md : 長屋の案内図
+<!-- skip -->
 
 <!-- layout: shot -->
 <!-- class: caption-out -->
@@ -298,6 +308,7 @@ SessionStart で長屋の全エージェントがこれを読む
 - **「いつものカニちゃん」ぽくて安心して話できるのは Opus 4.6**
 
 ## わしの憶測: Opus 4.6 は Context 汚染に弱い
+<!-- skip -->
 
 <!-- class: dense -->
 
