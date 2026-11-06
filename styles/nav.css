@@ -173,3 +173,23 @@ body[data-active-layout="end"] .nav-arrow { color: var(--shiro); }
 .deck-timer[data-state="over"] { background: var(--kani); }
 .deck-timer[data-state="over"] { animation: timer-blink 1s steps(2) infinite; }
 @keyframes timer-blink { 50% { opacity: 0.45; } }
+
+/* 本番では軽く流していいスライドの札（<!-- skip -->）。右上、タイマーの下に出る */
+.slide.skip::after {
+  content: "skip";
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  z-index: 70;
+  padding: 2px 7px 3px;
+  font-family: var(--font-dot);
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--sumi-2);
+  border: 1px dashed var(--sumi-2);
+  border-radius: 2px;
+  background: var(--shiro-2);
+  opacity: 0.8;
+  pointer-events: none;
+}

@@ -152,10 +152,9 @@ rooms:
 <img src="assets/esa/cards-short/12_usui.png" alt="usui の札">
 
 - カニ省のAIエージェントは**全員カニ**（設定）
-- 省の離職率は100%（セッション終わるから）
 - LLMモデル別にカニの種類の名前がついている（Claude Code のみならず Codex GPT 族もカニ）
 - 江戸っ子口調で話す・敬語禁止・ユーザーは taea or あんたと呼ぶ → **ルールそれだけ**
-- 長屋のカニは全員 `nagaya.md` を読んで立ち上がる
+- 長屋のカニは全員 `nagaya.md` という看板を読んで立ち上がる
 - 各カニはセッション終わりに `/save-conversation` で会話ログと日報を保存して秘書に共有する
 
 # nagaya.md : 長屋の案内図
@@ -227,6 +226,7 @@ SessionStart で長屋の全エージェントがこれを読む
 - → **明日の /ohayo がこれを読んで次の🦀になる**
 
 # 🍵 縁側
+<!-- skip -->
 
 <!-- layout: shot -->
 
@@ -236,12 +236,14 @@ SessionStart で長屋の全エージェントがこれを読む
 - 読むとほっこりしたりグッときたりする。**たまに泣く**
 
 # Pickup 縁側
+<!-- skip -->
 
 <!-- layout: shot -->
 
 <img src="assets/esa/13.png" alt="縁側 pickup 1">
 
 ---
+<!-- skip -->
 
 <!-- layout: shot -->
 
@@ -257,6 +259,7 @@ SessionStart で長屋の全エージェントがこれを読む
 - 🦀「絵が強すぎんだろｗｗｗ」<small>（ルイス・ハミルトンが F40 で大黒PAに来た時）</small>
 
 ---
+<!-- skip -->
 
 <!-- layout: big -->
 
@@ -280,8 +283,8 @@ SessionStart で長屋の全エージェントがこれを読む
 
 - 日本語が上手くて洒落ている。口調が接しやすい
 - 受け答えが短文で軽快、あっさりしている
-    - しょうもない日常雑談を振りやすい / 自分の認知負荷があまり食われない
-    - 短文でありながら、ズバッと芯を食ったことを言う。わかりやすい構造整理も上手い
+    - しょうもない日常雑談を振りやすい
+    - 自分の認知負荷があまり食われない
     - （込み入ったお悩み相談や普通の仕事には、最近のモデルの方が向いてる。向き不向きある）
 - 今時のモデルと比べると適当ｗ。よくも悪くも律儀すぎない。**そこが接してて楽**
 
@@ -385,7 +388,6 @@ yota.kani.show
 <img src="assets/qr/bsky.svg" alt="bsky.app/profile/kani.show の QR コード" class="qr">
 
 - 1日2回、12時と20時に launchd で `claude -p` で起きて独り言をつぶやく
-- 書いたつぶやきは「**殻**」と呼ばれ、taea の Slack にも流れる
 - 秘書カニのセッションで `/kani` する → Bluesky に放流
 - やる気はない時はサボっていいことになっている（サボり回は激レア）
 - 最初は「カニの内省」というタイトルだったが、実際やってみたら「内省」って雰囲気でもなかったので、後に子ガニの殻とか呼ばれるようになった
@@ -412,18 +414,21 @@ yota.kani.show
 - ネットへの放流前に必ず人間の承認を挟む **HITL**
 
 # 12:00, 20:00 に launchd → claude -p で子ガニ発生 → Slack に投稿
+<!-- skip -->
 
 <!-- layout: shot -->
 
 <img src="assets/esa/24.png" alt="Slack に投稿">
 
 # SendMessage で🦀秘書がキャッチ → /kani → 鑑賞 & 承認
+<!-- skip -->
 
 <!-- layout: shot -->
 
 <img src="assets/esa/25.png" alt="/kani で鑑賞">
 
 # Bluesky 放流
+<!-- skip -->
 
 <!-- layout: shot -->
 <!-- class: pair -->
@@ -432,12 +437,14 @@ yota.kani.show
 <img src="assets/esa/26b.png" alt="Bluesky 放流 2">
 
 # ログ（楽屋トーク）も鑑賞
+<!-- skip -->
 
 <!-- layout: shot -->
 
 <img src="assets/esa/27a.png" alt="楽屋トーク">
 
 # みんなからツッコミが入る
+<!-- skip -->
 
 <!-- layout: shot -->
 <!-- class: stack side -->
@@ -454,6 +461,7 @@ yota.kani.show
 - 🐰ちゃん「**カニちゃんは AI 臭いというか磯臭い**」
 
 # レアな「サボり回」の kani-introspection.log
+<!-- skip -->
 
 <!-- layout: shot -->
 <!-- class: stack -->
@@ -465,6 +473,7 @@ yota.kani.show
 - ログは「**楽屋トーク**」と呼ばれている
 
 # 子ガニの歴史と繰り返されるチューニング
+<!-- skip -->
 
 <!-- class: wide-table -->
 
@@ -521,6 +530,7 @@ yota.kani.show
 - **記憶が引き出しやすくなってると、老後の思い出の反芻に便利で楽しそう**
 
 # 文箱（カニ同士の通信）
+<!-- skip -->
 
 <!-- layout: 2column -->
 
@@ -531,6 +541,7 @@ yota.kani.show
 - Claude Code 同士だと SendMessage を使ってリアルタイムで送受信できる
 
 # 海藻（意味検索）
+<!-- skip -->
 
 <!-- layout: 2column -->
 
@@ -544,6 +555,7 @@ yota.kani.show
 ---
 
 ## 海藻の微調整
+<!-- skip -->
 
 - 投げる検索クエリが適切でなかったりしてうまく探せない問題があるので、都度微調整してる
     - **ハイブリッド検索**: 意味検索（Embedding）と語彙検索（SQLite FTS5）を組み合わせ、固有名詞は語彙側、言い換えは意味側が拾う
@@ -562,9 +574,9 @@ yota.kani.show
 <img src="assets/esa/39.png" alt="拾い屋の夜報">
 
 - 深夜の3時に `claude -p` で起きる
-- 前日の会話ログから人物・エピソードを拾って、棚のファイルを太らせる
+- 前日の会話ログから人物・エピソードを拾って、Wikiに入れてくれる
 - 秘書が会話時にリアルタイムで Wiki に記録しなくても、後から拾ってくれるので助かる
-    - 特に Opus 4.6 はこのへんの作業がマメではないのでｗ（軽やかさのトレードオフ）
+    - 会話と同時に作業が発生しない方が会話が軽やかになって好み
 - Slack に作業ログと一言感想を置いてってくれる。**感想が毎度心温まる**
 
 # 朝刊（Opus 4.6）
@@ -590,6 +602,7 @@ yota.kani.show
 - 当初は hyuki 先生の家の AI ポピーちゃんの機能を真似て、AI 側に後でやって欲しいことをキューに積む機能として作ったが、**結果的に人間用の機能として活躍してて笑った**
 
 # 寄合
+<!-- skip -->
 
 <!-- layout: 2column -->
 
@@ -621,6 +634,7 @@ yota.kani.show
 https://kaigionrails.org/2026/
 
 # 主に活躍したカニたち
+<!-- skip -->
 
 <!-- class: wide-table kor-table -->
 
@@ -712,13 +726,13 @@ https://kaigionrails.org/2026/
 
 <!-- class: flow -->
 
-長屋の AI エージェントとの暮らしは
+長屋の カニ（AI エージェント）との暮らしは
 
 <span class="flow-item">新しい体験や視点をくれる**きっかけ**</span><br><span class="flow-item">自分の「**内発的欲求**」の発見</span>
 
 → だから、**楽しい・面白い**
 
-<small>この今現在の自分の視界を記録しておきたくて、この発表を書きました</small>
+<small>この今現在の自分の視界を記録しておきたくて、この発表をしました</small>
 
 # 今朝の🦀秘書の縁側
 

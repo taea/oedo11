@@ -8,6 +8,7 @@
 //   <!-- crab: kogani -->      章扉などに出すカニの種類（pixel.js の SPECIES）
 //   <!-- class: foo bar -->    スライドに足す class
 //   <!-- pause -->             ここで一旦止める（以降は次のキー送りで出る）
+//   <!-- skip -->              本番では軽く流す印（右下に小さく skip 札が出る）
 
 import yaml from '../vendor/js-yaml.mjs';
 
@@ -17,6 +18,7 @@ const H2_LINE = /^##\s+(.+?)\s*$/;
 const SEP_LINE = /^\s*(---+|--)\s*$/;
 const META_LINE = /^[ \t]*<!--[-\s]*(layout|chapter|crab|class)\s*:\s*(.+?)[-\s]*-->[ \t]*$/i;
 const PAUSE_LINE = /^[ \t]*<!--[-\s]*pause[-\s]*-->[ \t]*$/i;
+const SKIP_LINE = /^[ \t]*<!--[-\s]*skip[-\s]*-->[ \t]*$/i;
 
 export const PAUSE_MARKER = '<div class="pause-marker"></div>';
 
@@ -110,6 +112,10 @@ function splitSlides(body) {
       const meta = line.match(META_LINE);
       if (meta) {
         applyMeta(current, meta[1].toLowerCase(), meta[2].trim());
+        continue;
+      }
+      if (SKIP_LINE.test(line)) {
+        current.classes.push('skip');
         continue;
       }
       if (PAUSE_LINE.test(line)) {
