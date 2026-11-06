@@ -4,6 +4,7 @@ import { parseMarkdown } from './parser.js';
 import { renderDeck } from './renderer.js';
 import { initNav } from './nav.js';
 import { buildFooter } from './footer.js';
+import { initTimer } from './timer.js';
 
 const deckEl = document.getElementById('deck');
 const loadingEl = document.getElementById('loading');
@@ -19,6 +20,7 @@ async function main() {
     const footer = buildFooter(frontmatter);
     deckEl.appendChild(footer.el);
     initNav(deckEl, { onChange: footer.update });
+    initTimer(deckEl, Number(frontmatter.timer) || 20);
     setupScaleFit(deckEl);
 
     document.body.classList.add('ready');

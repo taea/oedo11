@@ -166,14 +166,39 @@ function renderBig(section, slide) {
 // ---- shot: スクショをバーン → 次のキーで幕がかかって詳細 --------------------
 function renderShot(section, slide) {
   const fragment = mdToFragment(slide.bodyMarkdown);
+  // QR（img.qr）はスクショとは別扱いで、右脇に小さく置く
+  const qrs = Array.from(fragment.querySelectorAll('img.qr'));
+  for (const qr of qrs) {
+    const p = qr.closest('p');
+    qr.remove();
+    if (p && !p.textContent.trim() && !p.querySelector('img')) p.remove();
+  }
   const imgs = takeImages(fragment);
+
+  // class: side の時は、引用（>）をスクショの右脇の添え書きにする（幕は掛けない）
+  const sideNotes = (slide.classes || []).includes('side')
+    ? Array.from(fragment.children).filter((n) => n.tagName === 'BLOCKQUOTE')
+    : [];
+  for (const q of sideNotes) q.remove();
 
   const stage = el('div', 'shot-stage');
   stage.dataset.count = String(imgs.length);
+  const frames = sideNotes.length ? el('div', 'shot-frames') : stage;
   for (const img of imgs) {
     const frame = el('figure', 'shot-frame');
     frame.appendChild(img);
-    stage.appendChild(frame);
+    frames.appendChild(frame);
+  }
+  if (sideNotes.length) {
+    stage.appendChild(frames);
+    const aside = el('aside', 'shot-side');
+    for (const q of sideNotes) appendChildren(aside, q);
+    stage.appendChild(aside);
+  }
+  if (qrs.length) {
+    const box = el('div', 'shot-qr');
+    for (const qr of qrs) box.appendChild(qr);
+    stage.appendChild(box);
   }
   section.appendChild(stage);
 
@@ -334,12 +359,25 @@ function renderEnd(section, slide, fm, rooms) {
   const heading = buildHeading(slide);
   if (heading) text.appendChild(heading);
   const fragment = mdToFragment(slide.bodyMarkdown);
+  // QR は夜空の真ん中に浮かべる（押せば kani.show へ）
+  const qrs = Array.from(fragment.querySelectorAll('img.qr'));
+  for (const qr of qrs) {
+    const p = qr.closest('p');
+    qr.remove();
+    if (p && !p.textContent.trim() && !p.querySelector('img')) p.remove();
+  }
   if (hasContent(fragment)) {
     const lede = el('div', 'lede');
     appendChildren(lede, fragment);
     text.appendChild(lede);
   }
   section.appendChild(text);
+  for (const qr of qrs) {
+    const a = el('a', 'end-qr');
+    a.href = 'https://kani.show/';
+    a.appendChild(qr);
+    section.appendChild(a);
+  }
 
   const stage = el('div', 'dance-stage');
   stage.appendChild(buildNagaya(rooms, { active: -1, label: 'カニ省の長屋' }));

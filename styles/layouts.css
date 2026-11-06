@@ -565,3 +565,128 @@
 .pair .shot-stage { align-items: center; }
 .pair .shot-stage[data-count] .shot-frame { flex: 1 1 0; height: 100%; }
 .pair .shot-frame img { width: auto; }
+
+/* ===== 直し（4周目） ===== */
+/* 長屋の看板の文字を大きく */
+.nagaya-sign { font-size: calc(var(--nagaya-px, 1px) * 2.9); }
+
+/* full: スクショを大きく。札は画像の上に重ねる */
+.full.layout-shot .shot-label {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  z-index: 4;
+  max-width: 60%;
+}
+.full .shot-stage { margin-top: -12px; }
+
+/* side: スクショの右脇に添え書き */
+.side .shot-stage { flex-direction: row; align-items: center; gap: 32px; }
+.shot-frames {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.stack .shot-frames { flex-direction: column; }
+.shot-side {
+  flex: 0 0 310px;
+  align-self: center;
+  background: var(--card);
+  border: 3px solid var(--sumi);
+  box-shadow: 7px 7px 0 var(--kani);
+  padding: 20px 24px;
+  font-size: 22px;
+  line-height: 1.6;
+}
+.shot-side p { margin: 0 0 14px; }
+.shot-side p:last-child { margin-bottom: 0; }
+.shot-side strong { color: var(--kani); }
+
+/* 引用の中の傍線 */
+.ul {
+  text-decoration: underline;
+  text-decoration-color: var(--kani);
+  text-decoration-thickness: 4px;
+  text-underline-offset: 7px;
+  text-decoration-skip-ink: none;
+}
+
+/* エンドの夜空に浮かぶ QR */
+.end-qr {
+  position: absolute;
+  left: 50%;
+  top: 330px;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  display: block;
+  line-height: 0;
+}
+.end-qr img.qr {
+  width: 132px;
+  height: 132px;
+  border: 4px solid var(--sumi);
+  box-shadow: 6px 6px 0 var(--kani);
+}
+.end-text .lede a { color: var(--sky-1); text-decoration-color: rgba(247, 200, 166, 0.5); text-underline-offset: 4px; }
+.end-text .lede { font-size: 26px; }
+.side .shot-frames { justify-content: flex-end; }
+.stack.side .shot-frames { justify-content: center; align-items: flex-end; }
+.shot-side { margin-right: 24px; }
+/* 看板の --nagaya-px は --nw を持つ .nagaya 自身で決める（.dance-stage では --nw が見えない） */
+.dance-stage .nagaya { --nagaya-px: calc((1280px - 320px) / var(--nw)); }
+
+/* 住人の札（カニだけ10枚）を 5×2 で大きめに */
+.grid-5 .shot-stage { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px 18px; }
+.grid-5 .shot-frame { align-items: center; }
+.grid-5 .shot-frame img { object-position: center; }
+/* 札はモデル名まで（背の低い札を大きく） */
+.grid-5 .shot-stage { align-content: center; grid-template-rows: repeat(2, auto); gap: 18px 16px; }
+.grid-5 .shot-frame { height: auto; }
+.grid-5 .shot-frame img { height: auto; }
+
+/* caption-out: 札の添え書きを札の外（右隣）に出す。スクショに掛かってもよい */
+.caption-out .shot-label { position: relative; }
+.caption-out .shot-caption {
+  position: absolute;
+  left: calc(100% + 22px);
+  bottom: 10px;
+  margin: 0;
+  white-space: nowrap;
+  color: var(--sumi);
+  font-size: 22px;
+  font-weight: 700;
+  text-shadow: 0 0 6px var(--shiro-2), 0 0 2px var(--shiro-2);
+}
+
+/* スクショの右脇に置く QR */
+.shot-qr { flex: 0 0 auto; align-self: flex-end; margin-bottom: 8px; }
+.shot-qr img.qr {
+  display: block;
+  width: 150px;
+  height: 150px;
+  border: 3px solid var(--sumi);
+  box-shadow: 6px 6px 0 var(--kani);
+}
+.shot-stage:has(.shot-qr) .shot-frame { width: auto; flex: 0 1 auto; }
+.shot-stage:has(.shot-qr) { justify-content: flex-end; padding-right: 12px; }
+
+/* flow: 「AだからB」を一言でかく */
+.flow .content { font-size: 40px; line-height: 1.6; }
+.flow .content p:first-child { font-size: 30px; color: var(--sumi-2); }
+.flow .flow-item {
+  display: inline-block;
+  margin: 6px 0;
+  padding: 4px 22px 6px;
+  background: var(--card);
+  border: 3px solid var(--sumi);
+  box-shadow: 5px 5px 0 var(--line);
+  color: var(--sumi);
+}
+.flow .flow-item strong { color: var(--kani); font-weight: 400; }
+.flow .content > p:nth-of-type(3) { margin-top: 10px; }
+.flow .content > p:nth-of-type(3) strong { font-weight: 400; background: linear-gradient(transparent 62%, rgba(242, 193, 78, 0.6) 62%); }
+.flow .flow-item strong { background: none; }

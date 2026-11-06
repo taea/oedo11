@@ -1,0 +1,15 @@
+{
+  // docs.kani.show/oedo11/ — 大江戸Ruby会議11 のスライド
+  // worker.js が /oedo11 を剥がしてリポジトリ直下の静的ファイルを返す
+  "name": "kani-docs",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "routes": [
+    { "pattern": "docs.kani.show", "custom_domain": true }
+  ]
+}

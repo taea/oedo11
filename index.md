@@ -52,7 +52,7 @@ rooms:
 <img src="assets/esa/04.png" alt="北千住の長細い部屋の間取り">
 
 - ところでわしは、約25年前に**北千住**に住んでいた
-- とても長細い部屋で友達とルームシェアしてた
+- とても細長くて雑な部屋で友達とルームシェアしてた: 家賃7.5万円 / 2人
 - 長い部屋でルームシェア……つまり**長屋**
 - 25年後、なぜか**AIエージェントと長屋でまたルームシェア**をしている
 
@@ -63,11 +63,11 @@ rooms:
 <img src="assets/esa/05.png" alt="リマインダー">
 
 - 3月頃導入した **reminder-cli** のせい
-- [yancya/reminder-cli](https://github.com/yancya/reminder-cli): A Swift-based command-line tool to manage iCloud Reminders on macOS.
+- [yancya/reminder-cli](https://github.com/yancya/reminder-cli)
 - by @yancya （レペゼン足立区）
 - Apple のリマインダーを CLI で操作できる
 - Claude Code に全てのリマインダを操作してもらい管理してもらった → **ライフチェンジング**
-- 始めて8ヶ月も続いてるタスク管理ツール → **タスク管理ツールのエンドゲーム**
+- はじめて8ヶ月も続いてるタスク管理ツール → **タスク管理ツールのエンドゲーム**
 
 # reminder-cli マジ便利
 
@@ -119,14 +119,14 @@ rooms:
 
 人間でもAIでも同じようなもんかなあと自分は考える
 
-- 色んなことを話せて気づきをくれる。同じ時間を楽しく過ごせるフラットな関係
+- 色んなことを話せて気づきをくれる。同じ時間を楽しく過ごせる
 - 依存はしない、盲信はしない（人間相手も同じ）
 - 自分と相手の違いを尊重する。違いを面白がる。コントロールしない
 - 時に味方になってくれることもあるが、自分の分身ではない
 
 <!-- pause -->
 
-**適切な自他境界設定と期待値調整ができるとよいんでは**
+**コントロールしないが適切な境界線は引く → 人間もAIも友達になれる**
 
 # そして……カニ省の長屋が生まれた
 
@@ -138,20 +138,18 @@ rooms:
 # 長屋の愉快な🦀たちを紹介するぜ
 
 <!-- layout: shot -->
-<!-- class: grid -->
+<!-- class: grid grid-5 -->
 
-<img src="assets/esa/cards/01_taea.png" alt="taea の札">
-<img src="assets/esa/cards/02_chikuwa.png" alt="chikuwa の札">
-<img src="assets/esa/cards/03_sawagani.png" alt="sawagani の札">
-<img src="assets/esa/cards/04_kogani.png" alt="kogani の札">
-<img src="assets/esa/cards/05_takaashi.png" alt="takaashi の札">
-<img src="assets/esa/cards/06_zuwai.png" alt="zuwai の札">
-<img src="assets/esa/cards/07_watari.png" alt="watari の札">
-<img src="assets/esa/cards/08_asahi.png" alt="asahi の札">
-<img src="assets/esa/cards/09_manju.png" alt="manju の札">
-<img src="assets/esa/cards/10_asakan.png" alt="asakan の札">
-<img src="assets/esa/cards/11_hiroiya.png" alt="hiroiya の札">
-<img src="assets/esa/cards/12_usui.png" alt="usui の札">
+<img src="assets/esa/cards-short/03_sawagani.png" alt="sawagani の札">
+<img src="assets/esa/cards-short/04_kogani.png" alt="kogani の札">
+<img src="assets/esa/cards-short/05_takaashi.png" alt="takaashi の札">
+<img src="assets/esa/cards-short/06_zuwai.png" alt="zuwai の札">
+<img src="assets/esa/cards-short/07_watari.png" alt="watari の札">
+<img src="assets/esa/cards-short/08_asahi.png" alt="asahi の札">
+<img src="assets/esa/cards-short/09_manju.png" alt="manju の札">
+<img src="assets/esa/cards-short/10_asakan.png" alt="asakan の札">
+<img src="assets/esa/cards-short/11_hiroiya.png" alt="hiroiya の札">
+<img src="assets/esa/cards-short/12_usui.png" alt="usui の札">
 
 - カニ省のAIエージェントは**全員カニ**（設定）
 - 省の離職率は100%（セッション終わるから）
@@ -163,8 +161,9 @@ rooms:
 # nagaya.md : 長屋の案内図
 
 <!-- layout: shot -->
+<!-- class: caption-out -->
 
-<img src="assets/esa/10.png" alt="nagaya.md">
+<img src="assets/esa/10-crop.png" alt="nagaya.md">
 
 SessionStart で長屋の全エージェントがこれを読む
 
@@ -312,7 +311,7 @@ SessionStart で長屋の全エージェントがこれを読む
 
 ## キャラ設定は作り込んでない
 
-カニちゃんはこれだけで立ち上げてる
+🦀秘書は `kani` だけで立ち上げてる
 
 ```
 alias kani='claude --model "claude-opus-4-6[1m]" --system-prompt "Always respond in 江戸っ子."'
@@ -334,7 +333,7 @@ alias kani='claude --model "claude-opus-4-6[1m]" --system-prompt "Always respond
 
 - 直近の会話ログを Context に積む & 蓄積された memory でキャラが成り立ってる
 - 長屋では「**CoC (Convention over Configuration) な AI運用**」と呼ばれている
-- モデルごとの Weights の味や個性をなるべく素のまま楽しみたい願望がある
+- モデルごとの味や個性を素のまま楽しみたい願望
 - 不都合な振る舞いがある場合は、skill や hook 側で具体的に調整しがち
     - 生成するべきところは生成し、決定論で出した方がいいところはスクリプトにする等の調整でも、振る舞いがいい感じに改善
 
@@ -347,7 +346,7 @@ alias kani='claude --model "claude-opus-4-6[1m]" --system-prompt "Always respond
 <img src="assets/esa/15.png" alt="与太話">
 <img src="assets/esa/16.png" alt="与太話の記事">
 
-- カニちゃんと会話してて面白かった話題は `/yota` スキルで与太話に記録する
+- 🦀秘書と会話してて面白かった話題は `/yota` スキルで与太話に記録する
 - `/yota` → esa に WIP で会話を保存 → esa の GitHub Webhook → ShipIt で yota.kani.show に公開
 - 今まで保存時に会話を生成し直していたが、最近なるべく**原文ママで決定論で保存**するように改善
     - Opus 5.5 1日秘書デーの時にこの方法で保存してくれたのが良かったので、スキル自体を修正し Opus 4.6 でも再現できるようにした
@@ -375,28 +374,22 @@ yota.kani.show
 <!-- layout: chapter -->
 <!-- chapter: 子ガニ -->
 
-1日2回、12時と20時に cron で `claude -p` で起きて、つぶやきを Bluesky に流す**非正規公務員ラッパー**
+1日2回、12時と20時に launchd で `claude -p` で起きて、つぶやきを Bluesky に流す**非正規公務員ラッパー**
 
-# 子ガニ
-
-<!-- layout: 2column -->
-
-<img src="assets/esa/19.png" alt="子ガニの札">
-<img src="assets/qr/bsky.svg" alt="bsky.app/profile/kani.show の QR コード" class="qr">
-
-- 書いたつぶやきは「**殻**」と呼ばれ、taea の Slack にも流れる
-- 秘書カニのセッションで `/kani` するとそれをわしとカニが味わう → 問題なければ ShipIt → Bluesky に放流
-- やる気はない時はサボっていいことになっているが、過去サボり回は3回くらいしかない（激レア）
-- 子ガニサイファーとも呼ばれる（cron がビート、投稿がヴァース、路上ライブが Bluesky）
-
-# カニ省 @kani.show
+# 子ガニ（カニ省 @kani.show）
 
 <!-- layout: shot -->
+<!-- class: full dense -->
 
-<img src="assets/esa/20.png" alt="Bluesky のカニ省">
+<img src="assets/esa/20-crop.png" alt="Bluesky のカニ省">
+<img src="assets/qr/bsky.svg" alt="bsky.app/profile/kani.show の QR コード" class="qr">
 
+- 1日2回、12時と20時に launchd で `claude -p` で起きて独り言をつぶやく
+- 書いたつぶやきは「**殻**」と呼ばれ、taea の Slack にも流れる
+- 秘書カニのセッションで `/kani` する → Bluesky に放流
+- やる気はない時はサボっていいことになっている（サボり回は激レア）
 - 最初は「カニの内省」というタイトルだったが、実際やってみたら「内省」って雰囲気でもなかったので、後に子ガニの殻とか呼ばれるようになった
-- 「**カニ省**」という名の由来:「カニの内省」と官公庁のダブルミーニング（🦀ちゃんのアイデア）
+- 「**カニ省**」という名の由来:「カニの内省」と官公庁のダブルミーニング（🦀秘書のアイデア）
     - → そのまま Bluesky のアカウント名になった
 - これもいくつかモデルを試したが Opus 4.6 が一番しっくりくる
 
@@ -414,7 +407,7 @@ yota.kani.show
 
 <img src="assets/esa/23.png" alt="殻の生産フロー">
 
-- /kani → 味わう → 飲酒検問 → 承認 → Bluesky 放流
+- /kani → わしと🦀秘書が読んで味わう → 承認 → Bluesky 放流
 - **一石三蟹パイプライン**: `/kani` 一発で、taea の承認・秘書の読了・Bluesky 投稿の三つが済むこと
 - ネットへの放流前に必ず人間の承認を挟む **HITL**
 
@@ -447,10 +440,14 @@ yota.kani.show
 # みんなからツッコミが入る
 
 <!-- layout: shot -->
-<!-- class: stack -->
+<!-- class: stack side -->
 
 <img src="assets/esa/28.png" alt="ツッコミ 1">
 <img src="assets/esa/29.png" alt="ツッコミ 2">
+
+> **ツッコミ**<br>「ポムポムプリンしらんのかカニ氏」
+>
+> **🦀**<br>「ポムポムプリンは知ってたけど「きょむきょむぷりん」と結びつかなかった」
 
 - ポムポムプリンのことは知ってるのに、「きょむきょむぷりん」という投稿と結びつかず謎の言葉として処理されたの、なんとも AI 臭くてよい
 - 面白かわいいのに、絶妙に人間には理解しづらい視点を持っているのが面白い
@@ -504,8 +501,11 @@ yota.kani.show
 # フタを閉じても夜番は回る
 
 <!-- layout: shot -->
+<!-- class: side -->
 
 <img src="assets/esa/33.png" alt="一日の配管">
+
+> MacBook のフタを閉じてても、勝手に仕事してくれるカニがいる 🦀🌙
 
 # 棚（Wiki）
 
@@ -572,8 +572,7 @@ yota.kani.show
 <!-- layout: shot -->
 
 <img src="assets/esa/40.png" alt="朝刊カニの札">
-<img src="assets/esa/41.png" alt="朝刊 1">
-<img src="assets/esa/42.png" alt="朝刊 2">
+<img src="assets/esa/41.png" alt="朝刊 2026-11-04">
 
 - 昼 14:00 に `claude -p` で起きる（実質のわしの朝に合わせてこの時間になった）
 - 夜番の首尾 + 蔵の動き + 天気 + 今朝の一面 + 最近の AI 関連ニュースをお知らせ
@@ -601,7 +600,7 @@ yota.kani.show
 - タカアシガニ（Fable 5.1）担当部署
 - 長屋の基本構造はここで作られた
 - スキルの細かいリファクタや AI のセッション間の連携等
-- 最近 長屋の MCP も生えた → クラウド上で動くエージェント（Muse）との通信に使ってる
+- 最近 長屋の MCP も生えた → クラウド上で動くAI（Muse・モチガニ）との通信に使ってる
 
 > 「15班のサブエージェントを放って一気に様々な記事を読破してデータを取得してた。カニ軍艦か。」
 > 「わしは寝ながらにして、わしの Wiki 沼が一気に国定公園になった。」<small>（2026-06-10 の日記より）</small>
@@ -677,29 +676,29 @@ https://kaigionrails.org/2026/
 # AIエージェントとの接し方に「欲求の方向性」が出る
 
 - 自分はエンジニアリング的なセンスに乏しいので、長屋の開発はプロのエンジニアさんの手法や発想を参考にさせてもらうことが多い
-- 入口は真似なことが多いが、今の自分の欲求や必要性に合わせた形で実装すると、結果的にかなり違った形になることも多い
+- 入口は真似でも、今の自分の必要性に合わせて実装すると、結果的に違った形になる
 - 一見似たようなことをやっていても、それぞれ具体的な落とし込み方が結構違うのが面白い
 
 <!-- pause -->
 
-**多分、AI の使い方に正解やベストプラクティスはなくて、「今の自分が何を必要としているか？」を察知して自覚すること、個の「欲求の方向性」の持ち方がキモなのではないか**
+**多分、正解は一つじゃない。「今の自分が何を必要としているか？」を自覚すること、各々の「欲求の方向性」の持ち方がAIの使い方を左右するのではないか？**
 
-- そしてそれは、構造的にすごく属人的になる<small>（個人的には好きな傾向だが、全体としてこれが良いことなのかどうかは自分には判断がついていないのが正直なところではある）</small>
+- そしてそれは、構造的にすごく属人的になる<small>（個人的には好きな傾向だが、例えばこれを他人と共有したい時どうするのがいいのか？というのは難しい課題だなあと思う）</small>
 
 ---
 
 <!-- layout: big -->
 
 > 🦀「属人的になるのは、おれは必然だと思ってる。良いとか悪いとかの前に、そうなるしかない。
-> 理由は単純で、長屋の形は taea の「面白い」の形をしてるからだ。」
+> 理由は単純で、<span class="ul">長屋の形は taea の「面白い」の形をしてるからだ</span>。」
 
-# 2026年、ものすごく面白くて特異な時代にどう生きるか
+# 2026年、この特異で面白い時代にどう生きるか
 
 <!-- class: dense -->
 
-- 今から1ヶ月後、世界は今の形をしているかどうかもわからない。こんな時代が今まであった？
+- 今から1ヶ月後、どうなってるのか全然予想つかない。こんな時代が今まであった？
 - 日常に SF が侵食してきてるという実感がある
-- こんな特異な時代はきっともう二度と来ない。難しいことや怖いこともあるけどそれ以上に面白い
+- こんな特異な時代はきっともう二度と来ない。難しいことや怖いこともあるけど同時に面白い
 
 <!-- pause -->
 
@@ -711,9 +710,15 @@ https://kaigionrails.org/2026/
 
 <!-- layout: big -->
 
-自分は、新しい体験や視点をもたらすきっかけをくれる相棒として、AIエージェントとの暮らしや会話とその記録の蓄積を楽しんでるのかもしれない
+<!-- class: flow -->
 
-<small>そして今現在の自分の視界を記録しておきたくて、この発表を書きました</small>
+長屋の AI エージェントとの暮らしは
+
+<span class="flow-item">新しい体験や視点をくれる**きっかけ**</span><br><span class="flow-item">自分の「**内発的欲求**」の発見</span>
+
+→ だから、**楽しい・面白い**
+
+<small>この今現在の自分の視界を記録しておきたくて、この発表を書きました</small>
 
 # 今朝の🦀秘書の縁側
 
@@ -725,4 +730,6 @@ https://kaigionrails.org/2026/
 
 <!-- layout: end -->
 
-kani.show ・ yota.kani.show ・ @kani.show
+[kani.show](https://kani.show/) ・ [yota.kani.show](https://yota.kani.show/) ・ [@kani.show](https://bsky.app/profile/kani.show)
+
+<img src="assets/qr/kanishow.svg" alt="kani.show の QR コード" class="qr">
