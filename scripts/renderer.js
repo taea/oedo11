@@ -366,6 +366,9 @@ function renderEnd(section, slide, fm, rooms) {
     qr.remove();
     if (p && !p.textContent.trim() && !p.querySelector('img')) p.remove();
   }
+  // クレジットは QR の下に添える
+  const credits = Array.from(fragment.querySelectorAll('.credit'));
+  credits.forEach((c) => c.remove());
   if (hasContent(fragment)) {
     const lede = el('div', 'lede');
     appendChildren(lede, fragment);
@@ -377,6 +380,10 @@ function renderEnd(section, slide, fm, rooms) {
     a.href = 'https://kani.show/';
     a.appendChild(qr);
     section.appendChild(a);
+  }
+  for (const c of credits) {
+    c.classList.add('end-credit');
+    section.appendChild(c);
   }
 
   const stage = el('div', 'dance-stage');

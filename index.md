@@ -683,3 +683,5 @@ https://kaigionrails.org/2026/
 [kani.show](https://kani.show/) ・ [yota.kani.show](https://yota.kani.show/) ・ [@kani.show](https://bsky.app/profile/kani.show)
 
 <img src="assets/qr/kanishow.svg" alt="kani.show の QR コード" class="qr">
+
+<p class="credit">Slides designed &amp; built by Claude Opus 5.5 — Watarigani, the swimming crab 🦀</p>
