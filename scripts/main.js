@@ -15,7 +15,7 @@ async function main() {
     if (!res.ok) throw new Error(`index.md が読めねえ: ${res.status} ${res.statusText}`);
     const { frontmatter, slides } = parseMarkdown(await res.text());
 
-    if (frontmatter.title) document.title = String(frontmatter.title).replace(/\n/g, ' ');
+    if (frontmatter.title) document.title = [frontmatter.title, frontmatter.subtitle].filter(Boolean).join(' ').replace(/\n/g, ' ');
     renderDeck(deckEl, slides, frontmatter);
     const footer = buildFooter(frontmatter);
     deckEl.appendChild(footer.el);
